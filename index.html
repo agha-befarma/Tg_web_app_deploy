@@ -34,7 +34,7 @@
     <small>(The window goes fullscreen)</small>
     <button onclick="toggleMainButton(this);">Hide Main Button</button>
     <small>(It hides/shows main button)</small>
-    <button id="btnTime" onclick="sendTime(10);">Send time</button>
+    <button id="btnTime" onclick="sendTime();">Send time</button>
     <small>(The bot will recieve a message with filled <code>web_app_data</code> field)</small>
   </div>
 
@@ -117,9 +117,9 @@
 	const viewportStableHeight = Telegram.WebApp.viewportStableHeight || '';
 	const headerColor = Telegram.WebApp.headerColor || '';
 	const backgroundColor = Telegram.WebApp.backgroundColor || '';
-	const BackButton  = Telegram.WebApp.BackButton  || '';
-	const MainButton  = Telegram.WebApp.MainButton  || '';
-	const isVersionAtLeast  = Telegram.WebApp.isVersionAtLeast(5.0)  || '';
+	const BackButton = Telegram.WebApp.BackButton || '';
+	const MainButton = Telegram.WebApp.MainButton || '';
+	const isVersionAtLeast = Telegram.WebApp.isVersionAtLeast(5.0) || '';
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
@@ -168,11 +168,9 @@
 		Telegram.WebApp.close();
 	}
 
-	function sendTime(spam) {
-		const repeat = spam ? 10 : 1;
-		for (let i = 0; i < repeat; i++) {
-			Telegram.WebApp.sendData(new Date().toString());
-		}
+	function sendTime() {
+		// Telegram.WebApp.sendData(new Date().toString());
+		Telegram.WebApp.sendData('hi shahab');
 	}
 
 	function requestLocation() {
