@@ -29,7 +29,7 @@
 <section>
   <h1 id="greeting"></h1>
 
-  <div id="buttons">
+  <div id="buttons" style="display:none;">
     <button onclick="webviewExpand();">Expand Webview</button>
     <small>(The window goes fullscreen)</small>
     <button onclick="toggleMainButton(this);">Hide Main Button</button>
@@ -38,8 +38,8 @@
     <small>(The bot will recieve a message with filled <code>web_app_data</code> field)</small>
   </div>
 
-  <h3>Test links</h3>
-  <ul>
+  <h3 style="display:none;">Test links</h3>
+  <ul style="display:none;">
     <li><a href="?nextpage=1">Regular link #1</a> (opens inside webview)</li>
     <li><a href="https://telegram.org/" target="_blank">target="_blank" link</a> (opens outside webview)</li>
     <li><a href="javascript:window.open('https://telegram.org/');">window.open() link</a> (opens outside
@@ -49,8 +49,8 @@
     <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
   </ul>
 
-  <h3>Test permissions</h3>
-  <ul>
+  <h3 style="display:none;">Test permissions</h3>
+  <ul style="display:none;">
     <li>
       <a href="javascript:;" onclick="return requestLocation();">Request Location</a>
       <span id="locationData"></span>
@@ -65,11 +65,15 @@
     </li>
   </ul>
 
-  <h3>Init Data: </h3>
-  <pre id="initData"></pre>
-  <h3>Init Data (unsafe): </h3>
-  <pre id="initDataUnsafe"></pre>
-  <p id="bot_version"></p>
+  <h3 style="display:none;">Init Data: </h3>
+  <pre id="initData" style="display:none;"></pre>
+  <h3 style="display:none;">Init Data (unsafe): </h3>
+  <pre id="initDataUnsafe" style="display:none;"></pre>
+
+  <!-- ==================================================================================================== -->
+
+  <h3>Bot version: </h3>
+  <pre id="bot_version"></pre>
 </section>
 
 <script type="application/javascript">
@@ -82,8 +86,9 @@
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
 	document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
-	document.querySelector('#bot_version').innerHTML = `bot version ${bot_version}`;
 	document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
+
+	document.querySelector('#bot_version').innerHTML = bot_version;
 
 	Telegram.WebApp.MainButton
 			.setText('CLOSE WEBVIEW')
