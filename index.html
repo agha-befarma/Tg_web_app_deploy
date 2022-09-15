@@ -93,9 +93,6 @@
   <h3>backgroundColor: </h3>
   <pre id="backgroundColor"></pre>
 
-  <h3>isClosingConfirmationEnabled : </h3>
-  <pre id="isClosingConfirmationEnabled "></pre>
-
   <h3>BackButton: </h3>
   <pre id="BackButton"></pre>
 
@@ -120,7 +117,6 @@
 	const viewportStableHeight = Telegram.WebApp.viewportStableHeight || '';
 	const headerColor = Telegram.WebApp.headerColor || '';
 	const backgroundColor = Telegram.WebApp.backgroundColor || '';
-	const isClosingConfirmationEnabled  = Telegram.WebApp.isClosingConfirmationEnabled  || '';
 	const BackButton  = Telegram.WebApp.BackButton  || '';
 	const MainButton  = Telegram.WebApp.MainButton  || '';
 	const isVersionAtLeast  = Telegram.WebApp.isVersionAtLeast(5.0)  || '';
@@ -137,7 +133,6 @@
 	document.querySelector('#viewportStableHeight').innerHTML = viewportStableHeight;
 	document.querySelector('#headerColor').innerHTML = headerColor;
 	document.querySelector('#backgroundColor').innerHTML = backgroundColor;
-	document.querySelector('#isClosingConfirmationEnabled').innerHTML = isClosingConfirmationEnabled ;
 	document.querySelector('#BackButton').innerHTML = `${BackButton.isVisible} - ${BackButton}`;
 	document.querySelector('#MainButton').innerHTML = `${MainButton.text} - ${MainButton.color} - ${MainButton.textColor}
 	- ${MainButton.isVisible} - ${MainButton.isActive} - ${MainButton.isProgressVisible} - ${MainButton}`;
