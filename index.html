@@ -83,7 +83,7 @@
 	const initData = Telegram.WebApp.initData || '';
 	const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-	const isExpanded = Telegram.WebApp.isExpanded;
+	const isExpanded = Telegram.WebApp.isExpanded || false;
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
