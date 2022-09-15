@@ -72,6 +72,10 @@
 
   <!-- ==================================================================================================== -->
 
+  <h3>version: </h3>
+  <pre id="version"></pre>
+  <h3>colorScheme: </h3>
+  <pre id="colorScheme"></pre>
   <h3>isExpanded: </h3>
   <pre id="isExpanded"></pre>
 
@@ -83,14 +87,18 @@
 	const initData = Telegram.WebApp.initData || '';
 	const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-	const isExpanded = Telegram.WebApp.isExpanded || false;
+	const version = Telegram.WebApp.version || '';
+	const colorScheme = Telegram.WebApp.colorScheme || '';
+	const isExpanded = Telegram.WebApp.isExpanded || '';
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
 	document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
 	// document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
 
-	document.querySelector('#isExpanded').innerHTML = `isExpanded`;
+	document.querySelector('#version').innerHTML = version;
+	document.querySelector('#colorScheme').innerHTML = colorScheme;
+	document.querySelector('#isExpanded').innerHTML =isExpanded;
 
 	Telegram.WebApp.MainButton
 			.setText('CLOSE WEBVIEW')
