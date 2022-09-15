@@ -72,8 +72,9 @@
 
   <!-- ==================================================================================================== -->
 
-  <h3>colorScheme: </h3>
-  <pre id="colorScheme"></pre>
+  <h3>isExpanded: </h3>
+  <pre id="isExpanded"></pre>
+
 </section>
 
 <script type="application/javascript">
@@ -81,14 +82,14 @@
 
 	const initData = Telegram.WebApp.initData || '';
 	const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-	const colorScheme = Telegram.WebApp.colorScheme || '';
+	const isExpanded = Telegram.WebApp.isExpanded || '';
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
 	document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
 	document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
 
-	document.querySelector('#colorScheme').innerHTML = colorScheme;
+	document.querySelector('#isExpanded').innerHTML = `isExpanded : ${isExpanded}`;
 
 	Telegram.WebApp.MainButton
 			.setText('CLOSE WEBVIEW')
