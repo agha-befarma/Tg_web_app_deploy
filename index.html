@@ -72,8 +72,8 @@
 
   <!-- ==================================================================================================== -->
 
-  <h3>Bot version: </h3>
-  <pre id="bot_version"></pre>
+  <h3>colorScheme: </h3>
+  <pre id="colorScheme"></pre>
 </section>
 
 <script type="application/javascript">
@@ -81,14 +81,14 @@
 
 	const initData = Telegram.WebApp.initData || '';
 	const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-	const bot_version = Telegram.WebApp.version || '';
+	const colorScheme = Telegram.WebApp.colorScheme || '';
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
 	document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
 	document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
 
-	document.querySelector('#bot_version').innerHTML = bot_version;
+	document.querySelector('#colorScheme').innerHTML = colorScheme;
 
 	Telegram.WebApp.MainButton
 			.setText('CLOSE WEBVIEW')
