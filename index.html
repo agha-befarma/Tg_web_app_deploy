@@ -74,10 +74,36 @@
 
   <h3>version: </h3>
   <pre id="version"></pre>
+
   <h3>colorScheme: </h3>
   <pre id="colorScheme"></pre>
-  <h3>isExpanded: </h3>
-  <pre id="isExpanded"></pre>
+
+  <h3>themeParams: </h3>
+  <pre id="themeParams"></pre>
+
+  <h3>viewportHeight: </h3>
+  <pre id="viewportHeight"></pre>
+
+  <h3>viewportStableHeight: </h3>
+  <pre id="viewportStableHeight"></pre>
+
+  <h3>headerColor: </h3>
+  <pre id="headerColor"></pre>
+
+  <h3>backgroundColor: </h3>
+  <pre id="backgroundColor"></pre>
+
+  <h3>isClosingConfirmationEnabled : </h3>
+  <pre id="isClosingConfirmationEnabled "></pre>
+
+  <h3>BackButton: </h3>
+  <pre id="BackButton"></pre>
+
+  <h3>MainButton: </h3>
+  <pre id="MainButton"></pre>
+
+  <h3>isVersionAtLeast: </h3>
+  <pre id="isVersionAtLeast"></pre>
 
 </section>
 
@@ -89,7 +115,15 @@
 
 	const version = Telegram.WebApp.version || '';
 	const colorScheme = Telegram.WebApp.colorScheme || '';
-	const isExpanded = Telegram.WebApp.isExpanded || '';
+	const themeParams = Telegram.WebApp.themeParams || '';
+	const viewportHeight = Telegram.WebApp.viewportHeight || '';
+	const viewportStableHeight = Telegram.WebApp.viewportStableHeight || '';
+	const headerColor = Telegram.WebApp.headerColor || '';
+	const backgroundColor = Telegram.WebApp.backgroundColor || '';
+	const isClosingConfirmationEnabled  = Telegram.WebApp.isClosingConfirmationEnabled  || '';
+	const BackButton  = Telegram.WebApp.BackButton  || '';
+	const MainButton  = Telegram.WebApp.MainButton  || '';
+	const isVersionAtLeast  = Telegram.WebApp.isVersionAtLeast(5.0)  || '';
 
 	document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
 	document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
@@ -98,7 +132,16 @@
 
 	document.querySelector('#version').innerHTML = version;
 	document.querySelector('#colorScheme').innerHTML = colorScheme;
-	document.querySelector('#isExpanded').innerHTML =isExpanded;
+	document.querySelector('#themeParams').innerHTML = themeParams;
+	document.querySelector('#viewportHeight').innerHTML = viewportHeight;
+	document.querySelector('#viewportStableHeight').innerHTML = viewportStableHeight;
+	document.querySelector('#headerColor').innerHTML = headerColor;
+	document.querySelector('#backgroundColor').innerHTML = backgroundColor;
+	document.querySelector('#isClosingConfirmationEnabled').innerHTML = isClosingConfirmationEnabled ;
+	document.querySelector('#BackButton').innerHTML = `${BackButton.isVisible} - ${BackButton}`;
+	document.querySelector('#MainButton').innerHTML = `${MainButton.text} - ${MainButton.color} - ${MainButton.textColor}
+	- ${MainButton.isVisible} - ${MainButton.isActive} - ${MainButton.isProgressVisible} - ${MainButton}`;
+	document.querySelector('#isVersionAtLeast').innerHTML = isVersionAtLeast;
 
 	Telegram.WebApp.MainButton
 			.setText('CLOSE WEBVIEW')
